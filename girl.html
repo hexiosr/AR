@@ -1,12 +1,14 @@
-<!-- import aframe and then ar.js with image tracking / location based features -->
+<html lang="en">
+<!--导入js-->
 <script src="js/aframe-master.min.js"></script>
 <script src="js/aframe-ar-nft.js"></script>
 
 <head>
+    <title>AR</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
-<!-- style for the loader -->
+<!-- 页面样式 -->
 <style>
     .arjs-loader {
         height: 100%;
@@ -29,7 +31,7 @@
 </style>
 
 <body style="margin : 0px; overflow: hidden;">
-<!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+<!-- 加载提示,根据ar大小加载时间不同 -->
 <div class="arjs-loader">
     <div>Loading AR model, please wait...</div>
 </div>
@@ -41,9 +43,7 @@
         embedded
         arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
 >
-    <!-- a-nft is the anchor that defines an Image Tracking entity -->
-    <!-- on 'url' use the path to the Image Descriptors created before. -->
-    <!-- 路径不带文件拓展名！【注意】以网站的域名为相对路径 -->
+    <!-- 被识别图像-->
     <a-nft
             type="nft"
             url="/descriptors/girl/girl"
@@ -52,7 +52,7 @@
             smoothTolerance=".01"
             smoothThreshold="5"
     >
-        <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
+        <!-- GLTF模型-->
         <a-entity
                 gltf-model="models/girl/scene.gltf"
                 scale="0.8 0.8 0.8"
@@ -65,3 +65,5 @@
     <a-entity camera="fov: 190"></a-entity>
 </a-scene>
 </body>
+</html>
+
